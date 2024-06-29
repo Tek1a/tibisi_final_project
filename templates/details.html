@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .detail-card {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-top {
+        height: 400px; 
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 30px;
+        background-color: #fff; 
+    }
+
+    .card-title {
+        font-size: 2.5em; 
+        margin-bottom: 20px;
+        color: #333; 
+    }
+
+    .card-text {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        color: #666; 
+    }
+
+    .btn-back {
+        margin-top: 30px;
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff; 
+    }
+
+    .btn-back:hover {
+        background-color: #0056b3; 
+        border-color: #0056b3;
+    }
+</style>
+
+{% set img = product.file %}
+<div class="container detail-card">
+    <div class="card">
+        <img src="{{ url_for('static', filename=img) }}" class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+            <p class="card-text"><strong>Ingredients:</strong> {{ product.ingredients }}</p>
+            <a href="/" class="btn btn-back btn-lg btn-block">Back to Home</a> <!-- Full-width button -->
+        </div>
+    </div>
+</div>
+{% endblock %}

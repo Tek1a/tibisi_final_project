@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    .form-register {
+        max-width: 600px;
+        margin: auto;
+        padding: 30px;
+        background-color: #f8f9fa; /* Light gray background */
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Bootstrap primary color */
+        border-color: #007bff;
+        font-size: 1rem;
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker shade on hover */
+        border-color: #0056b3;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="form-register">
+        <h2 class="text-center mb-4">Add New Product</h2>
+        <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+            {{ form.hidden_tag() }}
+
+            <div class="mb-3">
+                {{ form.name.label(class="form-label") }}
+                {{ form.name(class="form-control", placeholder="Product Name") }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.file.label(class="form-label") }}
+                {{ form.file(class="form-control") }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.price.label(class="form-label") }}
+                {{ form.price(class="form-control", placeholder="Product Price") }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.ingredients.label(class="form-label") }}
+                {{ form.ingredients(class="form-control", placeholder="Product Ingredients") }}
+            </div>
+
+            <div class="d-grid">
+                {{ form.submit(class="btn btn-primary btn-block mt-4") }}
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
